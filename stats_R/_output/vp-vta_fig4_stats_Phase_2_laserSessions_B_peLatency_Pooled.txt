@@ -1,0 +1,81 @@
+[1] "------------------------------------------------------------------------------"
+[1] "0)---- Description --: "
+[1] "Figure 4D: DS Task opto, Laser Sessions, PE Latency, pooled projections"
+[1] "------------------------------------------------------------------------------"
+[1] "1)---- LME:"
+Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
+Formula: "RelLatency ~ Projection * CueID * LaserTrial * StimLength + (1|Subject)"
+   Data: df_Sub_A
+
+REML criterion at convergence: 603.9
+
+Scaled residuals: 
+     Min       1Q   Median       3Q      Max 
+-2.30768 -0.52849 -0.09192  0.50381  2.66537 
+
+Random effects:
+ Groups   Name        Variance Std.Dev.
+ Subject  (Intercept) 0.3766   0.6137  
+ Residual             1.0981   1.0479  
+Number of obs: 198, groups:  Subject, 25
+
+Fixed effects:
+                                                         Estimate Std. Error        df t value
+(Intercept)                                               2.04706    0.33682 124.54316   6.078
+ProjectionmdThal                                          0.06612    0.48615 124.54316   0.136
+CueIDNS                                                   1.62268    0.41103 158.55267   3.948
+LaserTrialnoLaser                                        -0.05162    0.41103 158.55267  -0.126
+StimLength10                                              0.01130    0.41103 158.55267   0.027
+ProjectionmdThal:CueIDNS                                  0.01114    0.59327 158.55267   0.019
+ProjectionmdThal:LaserTrialnoLaser                        0.06191    0.59327 158.55267   0.104
+CueIDNS:LaserTrialnoLaser                                -0.29297    0.58128 158.55267  -0.504
+ProjectionmdThal:StimLength10                             0.02462    0.59327 158.55267   0.042
+CueIDNS:StimLength10                                     -0.80058    0.58128 158.55267  -1.377
+LaserTrialnoLaser:StimLength10                           -0.19123    0.58128 158.55267  -0.329
+ProjectionmdThal:CueIDNS:LaserTrialnoLaser                0.69638    0.85093 158.88370   0.818
+ProjectionmdThal:CueIDNS:StimLength10                     0.14936    0.83901 158.55267   0.178
+ProjectionmdThal:LaserTrialnoLaser:StimLength10           0.02880    0.83901 158.55267   0.034
+CueIDNS:LaserTrialnoLaser:StimLength10                    1.45716    0.82206 158.55267   1.773
+ProjectionmdThal:CueIDNS:LaserTrialnoLaser:StimLength10  -1.06563    1.19500 158.72069  -0.892
+                                                        Pr(>|t|)    
+(Intercept)                                             1.38e-08 ***
+ProjectionmdThal                                        0.892040    
+CueIDNS                                                 0.000118 ***
+LaserTrialnoLaser                                       0.900211    
+StimLength10                                            0.978101    
+ProjectionmdThal:CueIDNS                                0.985047    
+ProjectionmdThal:LaserTrialnoLaser                      0.917016    
+CueIDNS:LaserTrialnoLaser                               0.614954    
+ProjectionmdThal:StimLength10                           0.966946    
+CueIDNS:StimLength10                                    0.170376    
+LaserTrialnoLaser:StimLength10                          0.742606    
+ProjectionmdThal:CueIDNS:LaserTrialnoLaser              0.414374    
+ProjectionmdThal:CueIDNS:StimLength10                   0.858934    
+ProjectionmdThal:LaserTrialnoLaser:StimLength10         0.972656    
+CueIDNS:LaserTrialnoLaser:StimLength10                  0.078221 .  
+ProjectionmdThal:CueIDNS:LaserTrialnoLaser:StimLength10 0.373881    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+[1] "------------------------------------------------------------------------------"
+[1] "2)---- ANOVA of LME:"
+Type III Analysis of Variance Table with Satterthwaite's method
+                                        Sum Sq Mean Sq NumDF   DenDF  F value  Pr(>F)    
+Projection                               0.533   0.533     1  22.581   0.4857 0.49296    
+CueID                                  114.307 114.307     1 158.721 104.0902 < 2e-16 ***
+LaserTrial                               1.102   1.102     1 158.721   1.0032 0.31807    
+StimLength                               1.904   1.904     1 158.721   1.7334 0.18988    
+Projection:CueID                         0.346   0.346     1 158.721   0.3147 0.57559    
+Projection:LaserTrial                    0.308   0.308     1 158.721   0.2800 0.59741    
+CueID:LaserTrial                         3.294   3.294     1 158.721   2.9992 0.08525 .  
+Projection:StimLength                    0.287   0.287     1 158.721   0.2613 0.60997    
+CueID:StimLength                         0.856   0.856     1 158.721   0.7793 0.37870    
+LaserTrial:StimLength                    1.002   1.002     1 158.721   0.9122 0.34097    
+Projection:CueID:LaserTrial              0.082   0.082     1 158.721   0.0749 0.78464    
+Projection:CueID:StimLength              0.452   0.452     1 158.721   0.4119 0.52195    
+Projection:LaserTrial:StimLength         0.781   0.781     1 158.721   0.7115 0.40020    
+CueID:LaserTrial:StimLength              2.628   2.628     1 158.721   2.3932 0.12385    
+Projection:CueID:LaserTrial:StimLength   0.873   0.873     1 158.721   0.7952 0.37388    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+[1] "------------------------------------------------------------------------------"
+[1] "---- END ---------------------------------------------------------------------"

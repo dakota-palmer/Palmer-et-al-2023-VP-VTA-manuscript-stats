@@ -1,0 +1,60 @@
+[1] "------------------------------------------------------------------------------"
+[1] "0)---- Description --: "
+[1] "Figure 6: ICSS, OG Active Side, Active vs Inactive NP Count, pooled projections"
+[1] "------------------------------------------------------------------------------"
+[1] "1)---- LME:"
+Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
+Formula: "countNP ~ Projection * typeNP * Session + (1|Subject)"
+   Data: df_Sub_A
+
+REML criterion at convergence: 1546.3
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-1.9194 -0.1018  0.0033  0.1931  6.1215 
+
+Random effects:
+ Groups   Name        Variance Std.Dev.
+ Subject  (Intercept)  7301     85.45  
+ Residual             13913    117.95  
+Number of obs: 140, groups:  Subject, 14
+
+Fixed effects:
+                                           Estimate Std. Error      df t value Pr(>|t|)   
+(Intercept)                                  101.86      55.05   58.08   1.850  0.06937 . 
+ProjectionmdThal                             -83.14      77.85   58.08  -1.068  0.28996   
+typeNPInactiveNP                             -68.29      63.05  108.00  -1.083  0.28118   
+Session2                                      71.71      63.05  108.00   1.137  0.25786   
+Session3                                     110.86      63.05  108.00   1.758  0.08153 . 
+Session4                                     126.57      63.05  108.00   2.008  0.04719 * 
+Session5                                     168.71      63.05  108.00   2.676  0.00861 **
+ProjectionmdThal:typeNPInactiveNP             70.29      89.16  108.00   0.788  0.43226   
+ProjectionmdThal:Session2                    -68.43      89.16  108.00  -0.767  0.44449   
+ProjectionmdThal:Session3                   -116.00      89.16  108.00  -1.301  0.19603   
+ProjectionmdThal:Session4                   -108.14      89.16  108.00  -1.213  0.22783   
+ProjectionmdThal:Session5                   -173.14      89.16  108.00  -1.942  0.05476 . 
+typeNPInactiveNP:Session2                    -83.29      89.16  108.00  -0.934  0.35234   
+typeNPInactiveNP:Session3                   -132.43      89.16  108.00  -1.485  0.14039   
+typeNPInactiveNP:Session4                   -145.86      89.16  108.00  -1.636  0.10478   
+typeNPInactiveNP:Session5                   -190.71      89.16  108.00  -2.139  0.03469 * 
+ProjectionmdThal:typeNPInactiveNP:Session2    72.14     126.10  108.00   0.572  0.56842   
+ProjectionmdThal:typeNPInactiveNP:Session3   128.29     126.10  108.00   1.017  0.31125   
+ProjectionmdThal:typeNPInactiveNP:Session4   125.86     126.10  108.00   0.998  0.32046   
+ProjectionmdThal:typeNPInactiveNP:Session5   183.43     126.10  108.00   1.455  0.14866   
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+[1] "------------------------------------------------------------------------------"
+[1] "2)---- ANOVA of LME:"
+Type III Analysis of Variance Table with Satterthwaite's method
+                          Sum Sq Mean Sq NumDF DenDF F value    Pr(>F)    
+Projection                 45548   45548     1    12  3.2739   0.09549 .  
+typeNP                    300302  300302     1   108 21.5850 9.603e-06 ***
+Session                    20099    5025     4   108  0.3612   0.83576    
+Projection:typeNP         259548  259548     1   108 18.6557 3.490e-05 ***
+Projection:Session         24633    6158     4   108  0.4426   0.77754    
+typeNP:Session             41143   10286     4   108  0.7393   0.56719    
+Projection:typeNP:Session  33576    8394     4   108  0.6033   0.66105    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+[1] "------------------------------------------------------------------------------"
+[1] "---- END ---------------------------------------------------------------------"

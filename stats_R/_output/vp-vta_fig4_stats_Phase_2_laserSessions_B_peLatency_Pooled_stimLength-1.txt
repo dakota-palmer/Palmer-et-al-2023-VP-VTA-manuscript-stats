@@ -1,0 +1,58 @@
+[1] "------------------------------------------------------------------------------"
+[1] "0)---- Description --: "
+[1] "Figure 4D: DS Task opto, Laser Sessions, PE Latency, pooled projectionsstimLength-1"
+[1] "------------------------------------------------------------------------------"
+[1] "1)---- LME:"
+Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
+Formula: "RelLatency ~ Projection * CueID * LaserTrial  + (1|Subject)"
+   Data: df_Sub_A
+
+REML criterion at convergence: 316.6
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-1.8666 -0.5665 -0.1371  0.5040  2.3205 
+
+Random effects:
+ Groups   Name        Variance Std.Dev.
+ Subject  (Intercept) 0.4278   0.6541  
+ Residual             1.2755   1.1294  
+Number of obs: 98, groups:  Subject, 25
+
+Fixed effects:
+                                           Estimate Std. Error       df t value Pr(>|t|)    
+(Intercept)                                 2.04706    0.36198 74.94508   5.655 2.69e-07 ***
+ProjectionmdThal                            0.06612    0.52247 74.94508   0.127   0.8996    
+CueIDNS                                     1.62268    0.44298 65.56670   3.663   0.0005 ***
+LaserTrialnoLaser                          -0.05162    0.44298 65.56670  -0.117   0.9076    
+ProjectionmdThal:CueIDNS                    0.01114    0.63939 65.56670   0.017   0.9862    
+ProjectionmdThal:LaserTrialnoLaser          0.06191    0.63939 65.56670   0.097   0.9232    
+CueIDNS:LaserTrialnoLaser                  -0.29297    0.62647 65.56670  -0.468   0.6416    
+ProjectionmdThal:CueIDNS:LaserTrialnoLaser  0.68957    0.91785 66.08386   0.751   0.4551    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+            (Intr) PrjctT CuIDNS LsrTrL PrT:CIDNS PT:LTL CIDNS:
+PrjctnmdThl -0.693                                             
+CueIDNS     -0.612  0.424                                      
+LasrTrlnLsr -0.612  0.424  0.500                               
+PrjcT:CIDNS  0.424 -0.612 -0.693 -0.346                        
+PrjctnT:LTL  0.424 -0.612 -0.346 -0.693  0.500                 
+CIDNS:LsrTL  0.433 -0.300 -0.707 -0.707  0.490     0.490       
+PT:CIDNS:LT -0.295  0.426  0.483  0.483 -0.697    -0.697 -0.683
+[1] "------------------------------------------------------------------------------"
+[1] "2)---- ANOVA of LME:"
+Type III Analysis of Variance Table with Satterthwaite's method
+                            Sum Sq Mean Sq NumDF  DenDF F value    Pr(>F)    
+Projection                   0.796   0.796     1 21.639  0.6240    0.4381    
+CueID                       66.285  66.285     1 66.084 51.9670 6.838e-10 ***
+LaserTrial                   0.001   0.001     1 66.084  0.0005    0.9819    
+Projection:CueID             0.767   0.767     1 66.084  0.6015    0.4408    
+Projection:LaserTrial        1.002   1.002     1 66.084  0.7853    0.3787    
+CueID:LaserTrial             0.016   0.016     1 66.084  0.0127    0.9105    
+Projection:CueID:LaserTrial  0.720   0.720     1 66.084  0.5644    0.4551    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+[1] "------------------------------------------------------------------------------"
+[1] "---- END ---------------------------------------------------------------------"

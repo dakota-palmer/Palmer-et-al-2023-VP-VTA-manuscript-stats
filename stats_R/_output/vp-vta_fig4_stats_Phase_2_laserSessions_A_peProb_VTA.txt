@@ -1,0 +1,66 @@
+[1] "------------------------------------------------------------------------------"
+[1] "0)---- Description --: "
+[1] "Figure 4C: DS Task opto, Laser Sessions, PE prob, VTA"
+[1] "------------------------------------------------------------------------------"
+[1] "1)---- LME:"
+Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
+Formula: "ResponseProb ~ CueID * LaserTrial * StimLength + (1|Subject)"
+   Data: df_Sub_A_VTA
+
+REML criterion at convergence: -19.2
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-2.4607 -0.4883  0.1077  0.6992  1.5791 
+
+Random effects:
+ Groups   Name        Variance Std.Dev.
+ Subject  (Intercept) 0.03307  0.1819  
+ Residual             0.02926  0.1711  
+Number of obs: 108, groups:  Subject, 14
+
+Fixed effects:
+                                        Estimate Std. Error        df t value Pr(>|t|)    
+(Intercept)                             0.827106   0.066726 31.317698  12.395 1.29e-13 ***
+CueIDNS                                -0.453139   0.064654 85.280117  -7.009 5.27e-10 ***
+LaserTrialnoLaser                      -0.006953   0.064654 85.280117  -0.108   0.9146    
+StimLength10                           -0.065949   0.066135 85.573789  -0.997   0.3215    
+CueIDNS:LaserTrialnoLaser               0.078329   0.091435 85.280117   0.857   0.3940    
+CueIDNS:StimLength10                    0.068524   0.093177 85.280117   0.735   0.4641    
+LaserTrialnoLaser:StimLength10          0.108052   0.093177 85.280117   1.160   0.2494    
+CueIDNS:LaserTrialnoLaser:StimLength10 -0.276864   0.131772 85.280117  -2.101   0.0386 *  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+            (Intr) CuIDNS LsrTrL StmL10 CIDNS:LsTL CIDNS:S LTL:SL
+CueIDNS     -0.484                                               
+LasrTrlnLsr -0.484  0.500                                        
+StimLngth10 -0.474  0.489  0.489                                 
+CIDNS:LsrTL  0.343 -0.707 -0.707 -0.346                          
+CIDNS:StL10  0.336 -0.694 -0.347 -0.704  0.491                   
+LsrTrL:SL10  0.336 -0.347 -0.694 -0.704  0.491      0.500        
+CIDNS:LTL:S -0.238  0.491  0.491  0.498 -0.694     -0.707  -0.707
+[1] "------------------------------------------------------------------------------"
+[1] "2)---- ANOVA of LME:"
+Type III Analysis of Variance Table with Satterthwaite's method
+                            Sum Sq Mean Sq NumDF DenDF  F value  Pr(>F)    
+CueID                       5.4340  5.4340     1 85.28 185.7083 < 2e-16 ***
+LaserTrial                  0.0078  0.0078     1 85.28   0.2670 0.60671    
+StimLength                  0.0575  0.0575     1 86.42   1.9652 0.16454    
+CueID:LaserTrial            0.0244  0.0244     1 85.28   0.8322 0.36422    
+CueID:StimLength            0.0329  0.0329     1 85.28   1.1258 0.29166    
+LaserTrial:StimLength       0.0062  0.0062     1 85.28   0.2126 0.64590    
+CueID:LaserTrial:StimLength 0.1292  0.1292     1 85.28   4.4146 0.03858 *  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+[1] "------------------------------------------------------------------------------"
+ contrast        StimLength CueID estimate     SE df t.ratio p.value
+ Laser - noLaser 1          DS     0.00695 0.0647 87   0.108  0.9999
+ Laser - noLaser 10         DS    -0.10110 0.0671 87  -1.507  0.4414
+ Laser - noLaser 1          NS    -0.07138 0.0647 87  -1.104  0.7201
+ Laser - noLaser 10         NS     0.09744 0.0671 87   1.452  0.4781
+
+Degrees-of-freedom method: kenward-roger 
+P value adjustment: sidak method for 4 tests 
+[1] "---- END ---------------------------------------------------------------------"

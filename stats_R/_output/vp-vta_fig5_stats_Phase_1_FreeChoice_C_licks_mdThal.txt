@@ -1,0 +1,72 @@
+[1] "------------------------------------------------------------------------------"
+[1] "0)---- Description --: "
+[1] "Figure 5: Lever Choice, Phase 1- Free Choice, licks/reward, mdThal"
+[1] "------------------------------------------------------------------------------"
+[1] "1)---- LME:"
+Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
+Formula: "licksPerRewardTypeLP ~ typeLP * Session + (1|Subject)"
+   Data: df_Sub_A_mdThal
+
+REML criterion at convergence: 801.5
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-1.7306 -0.6738 -0.1042  0.5610  3.0702 
+
+Random effects:
+ Groups   Name        Variance Std.Dev.
+ Subject  (Intercept)  44.28    6.655  
+ Residual             164.63   12.831  
+Number of obs: 108, groups:  Subject, 12
+
+Fixed effects:
+                                  Estimate Std. Error      df t value Pr(>|t|)    
+(Intercept)                        24.9843     5.3071 86.6807   4.708 9.43e-06 ***
+typeLPInactiveLeverPress           -1.0117     6.8583 84.0504  -0.148    0.883    
+Session2                            5.7208     6.5749 86.9610   0.870    0.387    
+Session3                            1.3550     6.6940 85.3275   0.202    0.840    
+Session4                            2.0193     6.5336 85.7620   0.309    0.758    
+Session5                            1.4279     6.4038 86.2249   0.223    0.824    
+Session6                            1.3691     6.3058 87.4216   0.217    0.829    
+typeLPInactiveLeverPress:Session2  -1.6520     9.1444 84.0504  -0.181    0.857    
+typeLPInactiveLeverPress:Session3   7.8356     9.3911 84.0504   0.834    0.406    
+typeLPInactiveLeverPress:Session4  -0.7297     9.1444 84.0504  -0.080    0.937    
+typeLPInactiveLeverPress:Session5   5.5055     8.9421 84.0504   0.616    0.540    
+typeLPInactiveLeverPress:Session6   1.2640     8.7732 84.0504   0.144    0.886    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+            (Intr) tyLPILP Sessn2 Sessn3 Sessn4 Sessn5 Sessn6 tLPILP:S2 tLPILP:S3 tLPILP:S4
+typLPInctLP -0.646                                                                         
+Session2    -0.701  0.522                                                                  
+Session3    -0.675  0.512   0.546                                                          
+Session4    -0.697  0.525   0.569  0.549                                                   
+Session5    -0.716  0.535   0.582  0.564  0.579                                            
+Session6    -0.735  0.544   0.595  0.569  0.588  0.604                                     
+typLPILP:S2  0.485 -0.750  -0.695 -0.384 -0.394 -0.402 -0.408                              
+typLPILP:S3  0.472 -0.730  -0.381 -0.701 -0.383 -0.391 -0.397  0.548                       
+typLPILP:S4  0.485 -0.750  -0.391 -0.384 -0.700 -0.402 -0.408  0.562     0.548             
+typLPILP:S5  0.496 -0.767  -0.400 -0.393 -0.403 -0.698 -0.417  0.575     0.560     0.575   
+typLPILP:S6  0.505 -0.782  -0.408 -0.400 -0.410 -0.419 -0.696  0.586     0.571     0.586   
+            tLPILP:S5
+typLPInctLP          
+Session2             
+Session3             
+Session4             
+Session5             
+Session6             
+typLPILP:S2          
+typLPILP:S3          
+typLPILP:S4          
+typLPILP:S5          
+typLPILP:S6  0.600   
+[1] "------------------------------------------------------------------------------"
+[1] "2)---- ANOVA of LME:"
+Type III Analysis of Variance Table with Satterthwaite's method
+               Sum Sq Mean Sq NumDF  DenDF F value Pr(>F)
+typeLP          27.80  27.801     1 84.050  0.1689 0.6822
+Session        343.30  68.660     5 87.738  0.4171 0.8357
+typeLP:Session 308.14  61.628     5 84.050  0.3743 0.8650
+[1] "------------------------------------------------------------------------------"
+[1] "---- END ---------------------------------------------------------------------"

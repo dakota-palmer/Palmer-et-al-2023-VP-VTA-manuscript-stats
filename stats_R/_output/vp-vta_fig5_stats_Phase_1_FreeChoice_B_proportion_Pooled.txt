@@ -1,0 +1,60 @@
+[1] "------------------------------------------------------------------------------"
+[1] "0)---- Description --: "
+[1] "Figure 5: Lever Choice, Phase 1- Free Choice, Active NP Proportion, pooled projections"
+[1] "------------------------------------------------------------------------------"
+[1] "1)---- LME:"
+Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
+Formula: "probActiveLP ~ Projection * Session + (1|Subject)"
+   Data: df_Sub_A
+
+REML criterion at convergence: 41.5
+
+Scaled residuals: 
+     Min       1Q   Median       3Q      Max 
+-3.07804 -0.44444  0.04065  0.42449  2.63767 
+
+Random effects:
+ Groups   Name        Variance Std.Dev.
+ Subject  (Intercept) 0.07976  0.2824  
+ Residual             0.03981  0.1995  
+Number of obs: 176, groups:  Subject, 31
+
+Fixed effects:
+                           Estimate Std. Error        df t value Pr(>|t|)    
+(Intercept)                 0.51848    0.09057  56.26454   5.725 4.19e-07 ***
+ProjectionmdThal            0.01862    0.12598  56.14999   0.148   0.8830    
+Session2                    0.06346    0.07442 135.48775   0.853   0.3953    
+Session3                   -0.01995    0.07442 135.48775  -0.268   0.7891    
+Session4                    0.06571    0.07541 135.24118   0.871   0.3851    
+Session5                    0.14995    0.07442 135.48775   2.015   0.0459 *  
+Session6                    0.08939    0.07442 135.48775   1.201   0.2318    
+ProjectionmdThal:Session2  -0.08350    0.10693 135.87707  -0.781   0.4362    
+ProjectionmdThal:Session3   0.02608    0.10456 135.65322   0.249   0.8034    
+ProjectionmdThal:Session4  -0.03724    0.10420 135.31653  -0.357   0.7214    
+ProjectionmdThal:Session5  -0.13511    0.10559 135.66089  -1.280   0.2029    
+ProjectionmdThal:Session6  -0.08217    0.10456 135.65322  -0.786   0.4333    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+            (Intr) PrjctT Sessn2 Sessn3 Sessn4 Sessn5 Sessn6 PrT:S2 PrT:S3 PrT:S4 PrT:S5
+PrjctnmdThl -0.719                                                                      
+Session2    -0.428  0.308                                                               
+Session3    -0.428  0.308  0.521                                                        
+Session4    -0.416  0.299  0.507  0.507                                                 
+Session5    -0.428  0.308  0.521  0.521  0.507                                          
+Session6    -0.428  0.308  0.521  0.521  0.507  0.521                                   
+PrjctnmT:S2  0.298 -0.414 -0.696 -0.363 -0.353 -0.363 -0.363                            
+PrjctnmT:S3  0.305 -0.423 -0.371 -0.712 -0.361 -0.371 -0.371  0.504                     
+PrjctnmT:S4  0.301 -0.421 -0.367 -0.367 -0.724 -0.367 -0.367  0.497  0.508              
+PrjctnmT:S5  0.302 -0.419 -0.367 -0.367 -0.357 -0.705 -0.367  0.497  0.505  0.503       
+PrjctnmT:S6  0.305 -0.423 -0.371 -0.371 -0.361 -0.371 -0.712  0.504  0.514  0.508  0.505
+[1] "------------------------------------------------------------------------------"
+[1] "2)---- ANOVA of LME:"
+Type III Analysis of Variance Table with Satterthwaite's method
+                     Sum Sq  Mean Sq NumDF   DenDF F value Pr(>F)
+Projection         0.003946 0.003946     1  29.213  0.0991 0.7551
+Session            0.164858 0.032972     5 135.582  0.8283 0.5316
+Projection:Session 0.129214 0.025843     5 135.582  0.6492 0.6626
+[1] "------------------------------------------------------------------------------"
+[1] "---- END ---------------------------------------------------------------------"

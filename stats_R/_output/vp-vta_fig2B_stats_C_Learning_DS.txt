@@ -1,0 +1,101 @@
+[1] "------------------------------------------------------------------------------"
+[1] "0)---- Description --: "
+[1] "DS & NS AUC: Learning/Changes across sessions"
+[1] "------------------------------------------------------------------------------"
+[1] "1)---- LME:"
+Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
+Formula: "periCueBlueAuc ~ trialType * sesSpecialLabel + (1|subject)"
+   Data: df_Sub_B
+
+REML criterion at convergence: 11178.2
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-3.9888 -0.5933 -0.0886  0.4576  6.8210 
+
+Random effects:
+ Groups   Name        Variance Std.Dev.
+ subject  (Intercept)  2.062   1.436   
+ Residual             51.056   7.145   
+Number of obs: 1650, groups:  subject, 8
+
+Fixed effects:
+                                                          Estimate Std. Error        df t value
+(Intercept)                                                 1.5085     0.7109   21.1034   2.122
+trialTypeaucNSblue                                         -6.3591     0.6523 1635.9396  -9.749
+sesSpecialLabelstage-5-day-1                                2.5049     0.6785 1639.6083   3.692
+sesSpecialLabelstage-5-day-1-criteria                       4.0293     0.6785 1639.6083   5.939
+sesSpecialLabelstage-7-final-day                            5.8592     0.6785 1639.6083   8.636
+trialTypeaucNSblue:sesSpecialLabelstage-5-day-1             4.3524     0.9225 1635.9396   4.718
+trialTypeaucNSblue:sesSpecialLabelstage-5-day-1-criteria    2.4569     0.9225 1635.9396   2.663
+                                                         Pr(>|t|)    
+(Intercept)                                               0.04583 *  
+trialTypeaucNSblue                                        < 2e-16 ***
+sesSpecialLabelstage-5-day-1                              0.00023 ***
+sesSpecialLabelstage-5-day-1-criteria                    3.50e-09 ***
+sesSpecialLabelstage-7-final-day                          < 2e-16 ***
+trialTypeaucNSblue:sesSpecialLabelstage-5-day-1          2.58e-06 ***
+trialTypeaucNSblue:sesSpecialLabelstage-5-day-1-criteria  0.00781 ** 
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+              (Intr) trlTNS ssSL-5--1 sSL-5--1- sSL-7- trTNS:SL-5--1
+trlTypcNSbl    0.000                                                
+ssSpcL-5--1   -0.513  0.000                                         
+ssSpL-5--1-   -0.513  0.000  0.538                                  
+ssSpclL-7--   -0.513 -0.481  0.538     0.538                        
+trTNS:SL-5--1  0.000 -0.707 -0.340     0.000     0.340              
+tTNS:SL-5--1-  0.000 -0.707  0.000    -0.340     0.340  0.500       
+fit warnings:
+fixed-effect model matrix is rank deficient so dropping 1 column / coefficient
+[1] "------------------------------------------------------------------------------"
+[1] "2)---- ANOVA of LME:"
+Type III Analysis of Variance Table with Satterthwaite's method
+                          Sum Sq Mean Sq NumDF  DenDF F value    Pr(>F)    
+trialType                 6020.1  6020.1     1 1635.9 117.912 < 2.2e-16 ***
+sesSpecialLabel           3069.0  1023.0     3 1637.6  20.037 9.368e-13 ***
+trialType:sesSpecialLabel 1142.9   571.5     2 1635.9  11.193 1.486e-05 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+[1] "------------------------------------------------------------------------------"
+[1] "3)---- Posthoc pairwise:"
+trialType = aucDSblue:
+ contrast                                          estimate    SE   df t.ratio p.value
+ (First Session-Stage1) - (stage-5-day-1)            -2.505 0.679 1640  -3.691  0.0014
+ (First Session-Stage1) - (stage-5-day-1-criteria)   -4.029 0.679 1640  -5.937  <.0001
+ (First Session-Stage1) - (stage-7-final-day)        -5.859 0.679 1640  -8.633  <.0001
+ (stage-5-day-1) - (stage-5-day-1-criteria)          -1.524 0.652 1636  -2.337  0.1117
+ (stage-5-day-1) - (stage-7-final-day)               -3.354 0.652 1636  -5.143  <.0001
+ (stage-5-day-1-criteria) - (stage-7-final-day)      -1.830 0.652 1636  -2.805  0.0301
+
+trialType = aucNSblue:
+ contrast                                          estimate    SE   df t.ratio p.value
+ (First Session-Stage1) - (stage-5-day-1)            nonEst    NA   NA      NA      NA
+ (First Session-Stage1) - (stage-5-day-1-criteria)   nonEst    NA   NA      NA      NA
+ (First Session-Stage1) - (stage-7-final-day)        nonEst    NA   NA      NA      NA
+ (stage-5-day-1) - (stage-5-day-1-criteria)           0.371 0.652 1636   0.569  0.9936
+ (stage-5-day-1) - (stage-7-final-day)                0.998 0.652 1636   1.530  0.5548
+ (stage-5-day-1-criteria) - (stage-7-final-day)       0.627 0.652 1636   0.961  0.9148
+
+Degrees-of-freedom method: kenward-roger 
+P value adjustment: sidak method for 6 tests 
+[1] "------------------------------------------------------------------------------"
+[1] "3)---- Posthoc T vs null,:"
+trialType = aucDSblue:
+ sesSpecialLabel        emmean    SE   df t.ratio p.value
+ First Session-Stage1     1.51 0.711 21.3   2.121  0.1710
+ stage-5-day-1            4.01 0.686 18.5   5.851  0.0001
+ stage-5-day-1-criteria   5.54 0.686 18.5   8.074  <.0001
+ stage-7-final-day        7.37 0.686 18.5  10.742  <.0001
+
+trialType = aucNSblue:
+ sesSpecialLabel        emmean    SE   df t.ratio p.value
+ First Session-Stage1   nonEst    NA   NA      NA      NA
+ stage-5-day-1            2.01 0.686 18.5   2.926  0.0349
+ stage-5-day-1-criteria   1.64 0.686 18.5   2.385  0.1072
+ stage-7-final-day        1.01 0.686 18.5   1.471  0.4978
+
+Degrees-of-freedom method: kenward-roger 
+P value adjustment: sidak method for 4 tests 
+[1] "---- END ---------------------------------------------------------------------"

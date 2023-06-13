@@ -1,0 +1,89 @@
+[1] "------------------------------------------------------------------------------"
+[1] "0)---- Description --: "
+[1] "Figure 5: Lever Choice, Phase 1- Free Choice, Active vs Inactive NP Count, pooled projections"
+[1] "------------------------------------------------------------------------------"
+[1] "1)---- LME:"
+Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
+Formula: "countLP ~ Projection * typeLP * Session + (1|Subject)"
+   Data: df_Sub_A
+
+REML criterion at convergence: 3497
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-2.2854 -0.5714 -0.1888  0.5313  3.5319 
+
+Random effects:
+ Groups   Name        Variance Std.Dev.
+ Subject  (Intercept) 258.6    16.08   
+ Residual             996.3    31.56   
+Number of obs: 372, groups:  Subject, 31
+
+Fixed effects:
+                                                   Estimate Std. Error       df t value Pr(>|t|)
+(Intercept)                                         20.6000     9.1465 237.2114   2.252 0.025223
+ProjectionmdThal                                     1.8375    12.7314 237.2114   0.144 0.885364
+typeLPInactiveLeverPress                            -0.7333    11.5256 319.0000  -0.064 0.949308
+Session2                                            12.1333    11.5256 319.0000   1.053 0.293264
+Session3                                            27.0000    11.5256 319.0000   2.343 0.019764
+Session4                                            34.6000    11.5256 319.0000   3.002 0.002894
+Session5                                            43.8000    11.5256 319.0000   3.800 0.000173
+Session6                                            42.8000    11.5256 319.0000   3.713 0.000241
+ProjectionmdThal:typeLPInactiveLeverPress           -7.1417    16.0430 319.0000  -0.445 0.656508
+ProjectionmdThal:Session2                          -13.3208    16.0430 319.0000  -0.830 0.406979
+ProjectionmdThal:Session3                          -25.4375    16.0430 319.0000  -1.586 0.113825
+ProjectionmdThal:Session4                          -30.2875    16.0430 319.0000  -1.888 0.059948
+ProjectionmdThal:Session5                          -36.8625    16.0430 319.0000  -2.298 0.022224
+ProjectionmdThal:Session6                          -30.4875    16.0430 319.0000  -1.900 0.058287
+typeLPInactiveLeverPress:Session2                  -12.4000    16.2997 319.0000  -0.761 0.447369
+typeLPInactiveLeverPress:Session3                  -13.3333    16.2997 319.0000  -0.818 0.413962
+typeLPInactiveLeverPress:Session4                  -13.0000    16.2997 319.0000  -0.798 0.425720
+typeLPInactiveLeverPress:Session5                  -27.1333    16.2997 319.0000  -1.665 0.096965
+typeLPInactiveLeverPress:Session6                  -27.2667    16.2997 319.0000  -1.673 0.095341
+ProjectionmdThal:typeLPInactiveLeverPress:Session2  14.7750    22.6883 319.0000   0.651 0.515375
+ProjectionmdThal:typeLPInactiveLeverPress:Session3  19.4583    22.6883 319.0000   0.858 0.391736
+ProjectionmdThal:typeLPInactiveLeverPress:Session4  16.0000    22.6883 319.0000   0.705 0.481194
+ProjectionmdThal:typeLPInactiveLeverPress:Session5  32.2583    22.6883 319.0000   1.422 0.156059
+ProjectionmdThal:typeLPInactiveLeverPress:Session6  31.2667    22.6883 319.0000   1.378 0.169139
+                                                      
+(Intercept)                                        *  
+ProjectionmdThal                                      
+typeLPInactiveLeverPress                              
+Session2                                              
+Session3                                           *  
+Session4                                           ** 
+Session5                                           ***
+Session6                                           ***
+ProjectionmdThal:typeLPInactiveLeverPress             
+ProjectionmdThal:Session2                             
+ProjectionmdThal:Session3                             
+ProjectionmdThal:Session4                          .  
+ProjectionmdThal:Session5                          *  
+ProjectionmdThal:Session6                          .  
+typeLPInactiveLeverPress:Session2                     
+typeLPInactiveLeverPress:Session3                     
+typeLPInactiveLeverPress:Session4                     
+typeLPInactiveLeverPress:Session5                  .  
+typeLPInactiveLeverPress:Session6                  .  
+ProjectionmdThal:typeLPInactiveLeverPress:Session2    
+ProjectionmdThal:typeLPInactiveLeverPress:Session3    
+ProjectionmdThal:typeLPInactiveLeverPress:Session4    
+ProjectionmdThal:typeLPInactiveLeverPress:Session5    
+ProjectionmdThal:typeLPInactiveLeverPress:Session6    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+[1] "------------------------------------------------------------------------------"
+[1] "2)---- ANOVA of LME:"
+Type III Analysis of Variance Table with Satterthwaite's method
+                           Sum Sq Mean Sq NumDF DenDF F value    Pr(>F)    
+Projection                 5071.1  5071.1     1    29  5.0899 0.0317784 *  
+typeLP                     9945.4  9945.4     1   319  9.9823 0.0017320 ** 
+Session                   25174.7  5034.9     5   319  5.0536 0.0001794 ***
+Projection:typeLP          3243.9  3243.9     1   319  3.2559 0.0721099 .  
+Projection:Session         5812.5  1162.5     5   319  1.1668 0.3253080    
+typeLP:Session             1555.8   311.2     5   319  0.3123 0.9054375    
+Projection:typeLP:Session  2765.1   553.0     5   319  0.5551 0.7344313    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+[1] "------------------------------------------------------------------------------"
+[1] "---- END ---------------------------------------------------------------------"

@@ -1,0 +1,18 @@
+[1] "------------------------------------------------------------------------------"
+[1] "0)---- Description --: "
+[1] "Figure 6: ICSS, OG Active Side, Active NP Proportion, mdThal projections"
+[1] "------------------------------------------------------------------------------"
+[1] "3)---- t test:"
+
+	One Sample t-test
+
+data:  df_Sub_A_finalSes_mdThal$npActiveProportion
+t = 0.96318, df = 5, p-value = 0.3797
+alternative hypothesis: true mean is not equal to 0.5
+95 percent confidence interval:
+ 0.3629962 0.8011926
+sample estimates:
+mean of x 
+0.5820944 
+
+[1] "---- END ---------------------------------------------------------------------"

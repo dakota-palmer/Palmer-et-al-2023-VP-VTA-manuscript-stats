@@ -1,0 +1,85 @@
+[1] "------------------------------------------------------------------------------"
+[1] "0)---- Description --: "
+[1] "Figure 1 supplement: Late Training DS vs NS PE Latency"
+[1] "------------------------------------------------------------------------------"
+[1] "1)---- LME:"
+Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
+Formula: "eventLatency  ~ trialType * trainDayThisPhase + (1|subject)"
+   Data: df_Sub_A
+
+REML criterion at convergence: 8161.4
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-2.0059 -0.5827 -0.2514  0.3355  3.7686 
+
+Random effects:
+ Groups   Name        Variance Std.Dev.
+ subject  (Intercept) 0.4766   0.6903  
+ Residual             4.4652   2.1131  
+Number of obs: 1876, groups:  subject, 8
+
+Fixed effects:
+                                      Estimate Std. Error         df t value Pr(>|t|)    
+(Intercept)                            2.20917    0.28380   11.80762   7.784 5.49e-06 ***
+trialTypeNStime                        1.12212    0.25356 1857.91489   4.425 1.02e-05 ***
+trainDayThisPhase-4                   -0.02415    0.20291 1857.01051  -0.119   0.9053    
+trainDayThisPhase-3                   -0.28256    0.20453 1857.00232  -1.382   0.1673    
+trainDayThisPhase-2                   -0.23782    0.20603 1857.06139  -1.154   0.2485    
+trainDayThisPhase-1                   -0.34093    0.20431 1857.03292  -1.669   0.0953 .  
+trainDayThisPhase0                    -0.28019    0.20504 1857.05321  -1.367   0.1719    
+trialTypeNStime:trainDayThisPhase-4    0.45331    0.35446 1857.22773   1.279   0.2011    
+trialTypeNStime:trainDayThisPhase-3    0.38275    0.35550 1857.32910   1.077   0.2818    
+trialTypeNStime:trainDayThisPhase-2    0.29880    0.36385 1857.58629   0.821   0.4116    
+trialTypeNStime:trainDayThisPhase-1    0.59808    0.36693 1857.37695   1.630   0.1033    
+trialTypeNStime:trainDayThisPhase0     0.40310    0.36992 1857.60213   1.090   0.2760    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+            (Intr) trlTNS tDTP-4 tDTP-3 tDTP-2 tDTP-1 trDTP0 tTNS:DTP-4 tTNS:DTP-3 tTNS:DTP-2
+trilTypNStm -0.292                                                                           
+trnDyThsP-4 -0.364  0.408                                                                    
+trnDyThsP-3 -0.361  0.404  0.505                                                             
+trnDyThsP-2 -0.359  0.401  0.502  0.498                                                      
+trnDyThsP-1 -0.362  0.405  0.506  0.502  0.498                                               
+trnDyThsPh0 -0.360  0.402  0.504  0.500  0.496  0.501                                        
+trTNS:DTP-4  0.209 -0.714 -0.573 -0.289 -0.287 -0.290 -0.288                                 
+trTNS:DTP-3  0.208 -0.711 -0.291 -0.575 -0.286 -0.288 -0.287  0.508                          
+trTNS:DTP-2  0.203 -0.697 -0.284 -0.282 -0.566 -0.282 -0.280  0.497      0.496               
+trTNS:DTP-1  0.201 -0.690 -0.282 -0.279 -0.277 -0.557 -0.278  0.493      0.491      0.481    
+trlTNS:DTP0  0.200 -0.685 -0.280 -0.277 -0.276 -0.278 -0.554  0.489      0.486      0.478    
+            tTNS:DTP-1
+trilTypNStm           
+trnDyThsP-4           
+trnDyThsP-3           
+trnDyThsP-2           
+trnDyThsP-1           
+trnDyThsPh0           
+trTNS:DTP-4           
+trTNS:DTP-3           
+trTNS:DTP-2           
+trTNS:DTP-1           
+trlTNS:DTP0  0.473    
+[1] "------------------------------------------------------------------------------"
+[1] "2)---- ANOVA of LME:"
+Type III Analysis of Variance Table with Satterthwaite's method
+                            Sum Sq Mean Sq NumDF  DenDF  F value Pr(>F)    
+trialType                   876.23  876.23     1 1857.9 196.2351 <2e-16 ***
+trainDayThisPhase            17.98    3.60     5 1857.4   0.8054 0.5457    
+trialType:trainDayThisPhase  13.63    2.73     5 1857.4   0.6103 0.6920    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+[1] "------------------------------------------------------------------------------"
+[1] "3)---- Posthoc pairwise:"
+ contrast        trainDayThisPhase estimate    SE   df t.ratio p.value
+ DStime - NStime -5                   -1.12 0.254 1858  -4.425  0.0001
+ DStime - NStime -4                   -1.58 0.248 1857  -6.343  <.0001
+ DStime - NStime -3                   -1.50 0.250 1858  -6.020  <.0001
+ DStime - NStime -2                   -1.42 0.261 1857  -5.444  <.0001
+ DStime - NStime -1                   -1.72 0.266 1857  -6.478  <.0001
+ DStime - NStime 0                    -1.53 0.270 1858  -5.659  <.0001
+
+Degrees-of-freedom method: kenward-roger 
+P value adjustment: sidak method for 6 tests 
+[1] "---- END ---------------------------------------------------------------------"

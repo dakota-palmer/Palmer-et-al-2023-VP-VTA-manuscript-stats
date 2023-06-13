@@ -1,0 +1,52 @@
+[1] "------------------------------------------------------------------------------"
+[1] "0)---- Description --: "
+[1] "Figure 4C: DS Task opto, Laser Sessions, PE prob, VTAstimLength-10"
+[1] "------------------------------------------------------------------------------"
+[1] "1)---- LME:"
+Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
+Formula: "ResponseProb ~ CueID * LaserTrial  + (1|Subject)"
+   Data: df_Sub_A_VTA
+
+REML criterion at convergence: -11.4
+
+Scaled residuals: 
+     Min       1Q   Median       3Q      Max 
+-1.95597 -0.72662  0.09875  0.70796  1.75539 
+
+Random effects:
+ Groups   Name        Variance Std.Dev.
+ Subject  (Intercept) 0.009421 0.09706 
+ Residual             0.030475 0.17457 
+Number of obs: 52, groups:  Subject, 13
+
+Fixed effects:
+                          Estimate Std. Error       df t value Pr(>|t|)    
+(Intercept)                0.80000    0.05540 41.12116  14.441  < 2e-16 ***
+CueIDNS                   -0.38462    0.06847 36.00000  -5.617 2.26e-06 ***
+LaserTrialnoLaser          0.10110    0.06847 36.00000   1.476   0.1485    
+CueIDNS:LaserTrialnoLaser -0.19853    0.09684 36.00000  -2.050   0.0477 *  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+            (Intr) CuIDNS LsrTrL
+CueIDNS     -0.618              
+LasrTrlnLsr -0.618  0.500       
+CIDNS:LsrTL  0.437 -0.707 -0.707
+[1] "------------------------------------------------------------------------------"
+[1] "2)---- ANOVA of LME:"
+Type III Analysis of Variance Table with Satterthwaite's method
+                  Sum Sq Mean Sq NumDF DenDF F value    Pr(>F)    
+CueID            3.04385 3.04385     1    36 99.8788 6.314e-12 ***
+LaserTrial       0.00004 0.00004     1    36  0.0014   0.97003    
+CueID:LaserTrial 0.12810 0.12810     1    36  4.2035   0.04768 *  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+[1] "------------------------------------------------------------------------------"
+ contrast        CueID estimate     SE df t.ratio p.value
+ Laser - noLaser DS     -0.1011 0.0685 36  -1.476  0.2750
+ Laser - noLaser NS      0.0974 0.0685 36   1.423  0.3000
+
+Degrees-of-freedom method: kenward-roger 
+P value adjustment: sidak method for 2 tests 
+[1] "---- END ---------------------------------------------------------------------"

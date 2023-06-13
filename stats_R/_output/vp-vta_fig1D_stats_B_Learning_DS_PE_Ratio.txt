@@ -1,0 +1,118 @@
+[1] "------------------------------------------------------------------------------"
+[1] "0)---- Description --: "
+[1] "Figure 1D:  Learning- DS PE Ratio early & late"
+[1] "------------------------------------------------------------------------------"
+[1] "1)---- LME:"
+Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
+Formula: "trialTypePEProb10s  ~ trainDayThisPhase + (1|subject)"
+   Data: df_Sub_B
+
+REML criterion at convergence: -18.4
+
+Scaled residuals: 
+     Min       1Q   Median       3Q      Max 
+-2.52071 -0.41981  0.00655  0.43448  2.38620 
+
+Random effects:
+ Groups   Name        Variance Std.Dev.
+ subject  (Intercept) 0.01099  0.1049  
+ Residual             0.03120  0.1766  
+Number of obs: 96, groups:  subject, 8
+
+Fixed effects:
+                     Estimate Std. Error        df t value Pr(>|t|)    
+(Intercept)          0.891667   0.072621 48.258546  12.278  < 2e-16 ***
+trainDayThisPhase-4  0.020833   0.088311 78.000000   0.236 0.814121    
+trainDayThisPhase-3  0.008333   0.088311 78.000000   0.094 0.925062    
+trainDayThisPhase-2 -0.033333   0.088311 78.000000  -0.377 0.706861    
+trainDayThisPhase-1  0.012500   0.088311 78.000000   0.142 0.887804    
+trainDayThisPhase0  -0.318750   0.076479 78.000000  -4.168 7.89e-05 ***
+trainDayThisPhase1  -0.520833   0.088311 78.000000  -5.898 8.97e-08 ***
+trainDayThisPhase2  -0.462500   0.088311 78.000000  -5.237 1.35e-06 ***
+trainDayThisPhase3  -0.425245   0.088311 78.000000  -4.815 7.07e-06 ***
+trainDayThisPhase4  -0.337299   0.088311 78.000000  -3.819 0.000267 ***
+trainDayThisPhase5  -0.385985   0.088311 78.000000  -4.371 3.78e-05 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+            (Intr) tDTP-4 tDTP-3 tDTP-2 tDTP-1 trDTP0 trDTP1 trDTP2 trDTP3 trDTP4
+trnDyThsP-4 -0.608                                                               
+trnDyThsP-3 -0.608  0.500                                                        
+trnDyThsP-2 -0.608  0.500  0.500                                                 
+trnDyThsP-1 -0.608  0.500  0.500  0.500                                          
+trnDyThsPh0 -0.702  0.577  0.577  0.577  0.577                                   
+trnDyThsPh1 -0.608  0.500  0.500  0.500  0.500  0.577                            
+trnDyThsPh2 -0.608  0.500  0.500  0.500  0.500  0.577  0.500                     
+trnDyThsPh3 -0.608  0.500  0.500  0.500  0.500  0.577  0.500  0.500              
+trnDyThsPh4 -0.608  0.500  0.500  0.500  0.500  0.577  0.500  0.500  0.500       
+trnDyThsPh5 -0.608  0.500  0.500  0.500  0.500  0.577  0.500  0.500  0.500  0.500
+[1] "------------------------------------------------------------------------------"
+[1] "2)---- ANOVA of LME:"
+Type III Analysis of Variance Table with Satterthwaite's method
+                  Sum Sq Mean Sq NumDF DenDF F value   Pr(>F)    
+trainDayThisPhase 3.9877 0.39877    10    78  12.783 7.17e-13 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+[1] "------------------------------------------------------------------------------"
+[1] "3)---- Posthoc pairwise:"
+ contrast                                      estimate     SE df t.ratio p.value
+ (trainDayThisPhase-5) - (trainDayThisPhase-4) -0.02083 0.0883 78  -0.236  1.0000
+ (trainDayThisPhase-5) - (trainDayThisPhase-3) -0.00833 0.0883 78  -0.094  1.0000
+ (trainDayThisPhase-5) - (trainDayThisPhase-2)  0.03333 0.0883 78   0.377  1.0000
+ (trainDayThisPhase-5) - (trainDayThisPhase-1) -0.01250 0.0883 78  -0.142  1.0000
+ (trainDayThisPhase-5) - trainDayThisPhase0     0.31875 0.0765 78   4.168  0.0043
+ (trainDayThisPhase-5) - trainDayThisPhase1     0.52083 0.0883 78   5.898  <.0001
+ (trainDayThisPhase-5) - trainDayThisPhase2     0.46250 0.0883 78   5.237  0.0001
+ (trainDayThisPhase-5) - trainDayThisPhase3     0.42525 0.0883 78   4.815  0.0004
+ (trainDayThisPhase-5) - trainDayThisPhase4     0.33730 0.0883 78   3.819  0.0146
+ (trainDayThisPhase-5) - trainDayThisPhase5     0.38598 0.0883 78   4.371  0.0021
+ (trainDayThisPhase-4) - (trainDayThisPhase-3)  0.01250 0.0883 78   0.142  1.0000
+ (trainDayThisPhase-4) - (trainDayThisPhase-2)  0.05417 0.0883 78   0.613  1.0000
+ (trainDayThisPhase-4) - (trainDayThisPhase-1)  0.00833 0.0883 78   0.094  1.0000
+ (trainDayThisPhase-4) - trainDayThisPhase0     0.33958 0.0765 78   4.440  0.0016
+ (trainDayThisPhase-4) - trainDayThisPhase1     0.54167 0.0883 78   6.134  <.0001
+ (trainDayThisPhase-4) - trainDayThisPhase2     0.48333 0.0883 78   5.473  <.0001
+ (trainDayThisPhase-4) - trainDayThisPhase3     0.44608 0.0883 78   5.051  0.0002
+ (trainDayThisPhase-4) - trainDayThisPhase4     0.35813 0.0883 78   4.055  0.0065
+ (trainDayThisPhase-4) - trainDayThisPhase5     0.40682 0.0883 78   4.607  0.0009
+ (trainDayThisPhase-3) - (trainDayThisPhase-2)  0.04167 0.0883 78   0.472  1.0000
+ (trainDayThisPhase-3) - (trainDayThisPhase-1) -0.00417 0.0883 78  -0.047  1.0000
+ (trainDayThisPhase-3) - trainDayThisPhase0     0.32708 0.0765 78   4.277  0.0029
+ (trainDayThisPhase-3) - trainDayThisPhase1     0.52917 0.0883 78   5.992  <.0001
+ (trainDayThisPhase-3) - trainDayThisPhase2     0.47083 0.0883 78   5.332  0.0001
+ (trainDayThisPhase-3) - trainDayThisPhase3     0.43358 0.0883 78   4.910  0.0003
+ (trainDayThisPhase-3) - trainDayThisPhase4     0.34563 0.0883 78   3.914  0.0106
+ (trainDayThisPhase-3) - trainDayThisPhase5     0.39432 0.0883 78   4.465  0.0015
+ (trainDayThisPhase-2) - (trainDayThisPhase-1) -0.04583 0.0883 78  -0.519  1.0000
+ (trainDayThisPhase-2) - trainDayThisPhase0     0.28542 0.0765 78   3.732  0.0196
+ (trainDayThisPhase-2) - trainDayThisPhase1     0.48750 0.0883 78   5.520  <.0001
+ (trainDayThisPhase-2) - trainDayThisPhase2     0.42917 0.0883 78   4.860  0.0003
+ (trainDayThisPhase-2) - trainDayThisPhase3     0.39191 0.0883 78   4.438  0.0016
+ (trainDayThisPhase-2) - trainDayThisPhase4     0.30397 0.0883 78   3.442  0.0499
+ (trainDayThisPhase-2) - trainDayThisPhase5     0.35265 0.0883 78   3.993  0.0080
+ (trainDayThisPhase-1) - trainDayThisPhase0     0.33125 0.0765 78   4.331  0.0024
+ (trainDayThisPhase-1) - trainDayThisPhase1     0.53333 0.0883 78   6.039  <.0001
+ (trainDayThisPhase-1) - trainDayThisPhase2     0.47500 0.0883 78   5.379  <.0001
+ (trainDayThisPhase-1) - trainDayThisPhase3     0.43775 0.0883 78   4.957  0.0002
+ (trainDayThisPhase-1) - trainDayThisPhase4     0.34980 0.0883 78   3.961  0.0090
+ (trainDayThisPhase-1) - trainDayThisPhase5     0.39848 0.0883 78   4.512  0.0012
+ trainDayThisPhase0 - trainDayThisPhase1        0.20208 0.0765 78   2.642  0.4229
+ trainDayThisPhase0 - trainDayThisPhase2        0.14375 0.0765 78   1.880  0.9735
+ trainDayThisPhase0 - trainDayThisPhase3        0.10650 0.0765 78   1.392  1.0000
+ trainDayThisPhase0 - trainDayThisPhase4        0.01855 0.0765 78   0.243  1.0000
+ trainDayThisPhase0 - trainDayThisPhase5        0.06723 0.0765 78   0.879  1.0000
+ trainDayThisPhase1 - trainDayThisPhase2       -0.05833 0.0883 78  -0.661  1.0000
+ trainDayThisPhase1 - trainDayThisPhase3       -0.09559 0.0883 78  -1.082  1.0000
+ trainDayThisPhase1 - trainDayThisPhase4       -0.18353 0.0883 78  -2.078  0.8998
+ trainDayThisPhase1 - trainDayThisPhase5       -0.13485 0.0883 78  -1.527  0.9996
+ trainDayThisPhase2 - trainDayThisPhase3       -0.03725 0.0883 78  -0.422  1.0000
+ trainDayThisPhase2 - trainDayThisPhase4       -0.12520 0.0883 78  -1.418  0.9999
+ trainDayThisPhase2 - trainDayThisPhase5       -0.07652 0.0883 78  -0.866  1.0000
+ trainDayThisPhase3 - trainDayThisPhase4       -0.08795 0.0883 78  -0.996  1.0000
+ trainDayThisPhase3 - trainDayThisPhase5       -0.03926 0.0883 78  -0.445  1.0000
+ trainDayThisPhase4 - trainDayThisPhase5        0.04869 0.0883 78   0.551  1.0000
+
+Degrees-of-freedom method: kenward-roger 
+P value adjustment: sidak method for 55 tests 
+[1] "---- END ---------------------------------------------------------------------"

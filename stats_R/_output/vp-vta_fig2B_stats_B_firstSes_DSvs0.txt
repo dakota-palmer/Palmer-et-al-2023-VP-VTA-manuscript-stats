@@ -1,0 +1,18 @@
+[1] "------------------------------------------------------------------------------"
+[1] "0)---- Description --: "
+[1] "DS AUC vs 0 on first training day (no NS)"
+[1] "------------------------------------------------------------------------------"
+[1] "1)---- One sample T-Test:"
+
+	One Sample t-test
+
+data:  df_Sub_B$periCueBlueAuc
+t = 2.4786, df = 6, p-value = 0.04789
+alternative hypothesis: true mean is not equal to 0
+95 percent confidence interval:
+ 0.02312961 3.59189458
+sample estimates:
+mean of x 
+ 1.807512 
+
+[1] "---- END ---------------------------------------------------------------------"

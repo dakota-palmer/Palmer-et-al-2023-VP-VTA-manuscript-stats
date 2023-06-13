@@ -1,0 +1,18 @@
+[1] "------------------------------------------------------------------------------"
+[1] "0)---- Description --: "
+[1] "Figure 6: ICSS, OG Active Side, Active NP Proportion, VTA projections"
+[1] "------------------------------------------------------------------------------"
+[1] "3)---- t test:"
+
+	One Sample t-test
+
+data:  df_Sub_A_finalSes_VTA$npActiveProportion
+t = 6.3925, df = 6, p-value = 0.00069
+alternative hypothesis: true mean is not equal to 0.5
+95 percent confidence interval:
+ 0.7188592 0.9903190
+sample estimates:
+mean of x 
+0.8545891 
+
+[1] "---- END ---------------------------------------------------------------------"

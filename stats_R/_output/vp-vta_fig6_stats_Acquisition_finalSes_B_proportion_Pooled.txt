@@ -1,0 +1,43 @@
+[1] "------------------------------------------------------------------------------"
+[1] "0)---- Description --: "
+[1] "Figure 6: ICSS, OG Active Side, Active NP Proportion, pooled projections"
+[1] "------------------------------------------------------------------------------"
+[1] "1)---- LME:"
+
+Call:
+lm(formula = "npActiveProportion ~ Projection", data = df_Sub_A_finalSes)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-0.2894 -0.1311  0.0343  0.1108  0.2929 
+
+Coefficients:
+                 Estimate Std. Error t value Pr(>|t|)    
+(Intercept)       0.85459    0.06715  12.727 6.34e-08 ***
+ProjectionmdThal -0.27249    0.09884  -2.757   0.0187 *  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 0.1777 on 11 degrees of freedom
+  (15 observations deleted due to missingness)
+Multiple R-squared:  0.4086,	Adjusted R-squared:  0.3549 
+F-statistic: 7.601 on 1 and 11 DF,  p-value: 0.01866
+
+[1] "------------------------------------------------------------------------------"
+[1] "2)---- ANOVA of LME:"
+Analysis of Variance Table
+
+Response: npActiveProportion
+           Df  Sum Sq  Mean Sq F value  Pr(>F)  
+Projection  1 0.23990 0.239896   7.601 0.01866 *
+Residuals  11 0.34717 0.031561                  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+[1] "------------------------------------------------------------------------------"
+[1] "3)---- Posthoc pairwise:"
+ Projection emmean     SE df null t.ratio p.value
+ VTA         0.855 0.0671 11  0.5   5.281  0.0005
+ mdThal      0.582 0.0725 11  0.5   1.132  0.4841
+
+P value adjustment: sidak method for 2 tests 
+[1] "---- END ---------------------------------------------------------------------"

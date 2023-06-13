@@ -1,0 +1,43 @@
+[1] "------------------------------------------------------------------------------"
+[1] "0)---- Description --: "
+[1] "Figure 4C: DS Task opto, No Laser Sessions, PE prob, mdThal"
+[1] "------------------------------------------------------------------------------"
+[1] "1)---- LME:"
+Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
+Formula: "ResponseProb ~  CueID  + (1|Subject)"
+   Data: df_Sub_B_mdThal
+
+REML criterion at convergence: -23.2
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-2.0924 -0.5231 -0.1871  0.5174  1.8308 
+
+Random effects:
+ Groups   Name        Variance Std.Dev.
+ Subject  (Intercept) 0.00000  0.0000  
+ Residual             0.01624  0.1274  
+Number of obs: 24, groups:  Subject, 12
+
+Fixed effects:
+            Estimate Std. Error       df t value Pr(>|t|)    
+(Intercept)  0.87644    0.03679 22.00000   23.82  < 2e-16 ***
+CueIDNS     -0.54310    0.05203 22.00000  -10.44  5.5e-10 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+        (Intr)
+CueIDNS -0.707
+optimizer (nloptwrap) convergence code: 0 (OK)
+boundary (singular) fit: see ?isSingular
+
+[1] "------------------------------------------------------------------------------"
+[1] "2)---- ANOVA of LME:"
+Type III Analysis of Variance Table with Satterthwaite's method
+      Sum Sq Mean Sq NumDF DenDF F value    Pr(>F)    
+CueID 1.7698  1.7698     1    22  108.96 5.501e-10 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+[1] "------------------------------------------------------------------------------"
+[1] "---- END ---------------------------------------------------------------------"

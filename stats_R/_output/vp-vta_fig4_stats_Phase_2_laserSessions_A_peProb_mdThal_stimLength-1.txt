@@ -1,0 +1,46 @@
+[1] "------------------------------------------------------------------------------"
+[1] "0)---- Description --: "
+[1] "Figure 4C: DS Task opto, Laser Sessions, PE prob, mdThalstimLength-1"
+[1] "------------------------------------------------------------------------------"
+[1] "1)---- LME:"
+Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
+Formula: "ResponseProb ~ CueID * LaserTrial  + (1|Subject)"
+   Data: df_Sub_A_mdThal
+
+REML criterion at convergence: -6.2
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-2.6865 -0.5489  0.1207  0.7093  1.5445 
+
+Random effects:
+ Groups   Name        Variance Std.Dev.
+ Subject  (Intercept) 0.01908  0.1381  
+ Residual             0.02950  0.1718  
+Number of obs: 48, groups:  Subject, 12
+
+Fixed effects:
+                           Estimate Std. Error        df t value Pr(>|t|)    
+(Intercept)                0.846215   0.063627 30.081480  13.300 3.92e-14 ***
+CueIDNS                   -0.506632   0.070121 33.000000  -7.225 2.76e-08 ***
+LaserTrialnoLaser         -0.007673   0.070121 33.000000  -0.109    0.914    
+CueIDNS:LaserTrialnoLaser -0.056116   0.099166 33.000000  -0.566    0.575    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+            (Intr) CuIDNS LsrTrL
+CueIDNS     -0.551              
+LasrTrlnLsr -0.551  0.500       
+CIDNS:LsrTL  0.390 -0.707 -0.707
+[1] "------------------------------------------------------------------------------"
+[1] "2)---- ANOVA of LME:"
+Type III Analysis of Variance Table with Satterthwaite's method
+                 Sum Sq Mean Sq NumDF DenDF  F value    Pr(>F)    
+CueID            3.4307  3.4307     1    33 116.2891 2.367e-12 ***
+LaserTrial       0.0153  0.0153     1    33   0.5193    0.4762    
+CueID:LaserTrial 0.0094  0.0094     1    33   0.3202    0.5753    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+[1] "------------------------------------------------------------------------------"
+[1] "---- END ---------------------------------------------------------------------"
