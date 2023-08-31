@@ -771,5 +771,236 @@ p= ggplot()+
 # __________________________________________________ ####
 
 
+
+# __________________________________________________ ####
+
+
+# %- Supplemental fig 3 Stats-- Lick Count Correlation ####
+
+#0%%-- Clear vars between tests ####
+# #clear workspace (R environment) # Except paths, Python packages (pandas)
+rm(list = setdiff(ls(), c("pathWorking", "pathOutput", "pathInput", "pd")))
+
+
+#1%%-- Load data from .pkl ####
+
+pathData= paste(pathInput,'/supplement_Fig3_lickCount_PE_corr.pkl', sep="")
+
+
+df <- pd$read_pickle(pathData)
+
+
+###### summarize data
+summary(df)
+
+#verify dtypes imported properly
+sapply(df, class)
+
+
+#- Subset to one kernel auc value per eventType per subject
+
+#%- Drop invalid observations
+# possible that some latencies don't have rho values, drop these (e.g. if subject has no trials beyond certain latency, real fp signal will be excluded)
+# df_Sub_A= df[!is.na(df$periCueRho),]
+
+
+# df_Sub_A= na.omit(df[,c('periCueRho','subject','timeLock')])
+
+# should be rows with nan pvalRhoBlue
+df_Sub_A= na.omit(df)
+
+
+#2%%-- Run model ####
+
+model= lmerTest::lmer('periCueRho ~ latencyOrder * timeLock + (1|subject)', data=df_Sub_A)
+model_anova<- anova(model)
+
+
+# -- Interaction plot
+
+# 3%%-- Posthoc tests ####
+pAlpha= 0.050
+
+
+# --  Pairwise t tests between levels
+#%%
+
+EMM <- emmeans(model, ~  latencyOrder | timeLock)   # where treat has 2 levels
+tPairwise= pairs(EMM, adjust = "sidak")   # adjustment is ignored - only 1 test per group
+summary(tPairwise, by = NULL, adjust = "sidak")   # all are in one group now
+
+# convert to df with summary to extract data / subset by significant p.value
+tPairwiseDF= summary(tPairwise, by = NULL, adjust = "sidak")
+
+indSig= which(tPairwiseDF[,'p.value']<=pAlpha)
+
+tPairwiseSig= tPairwiseDF[indSig,]
+
+
+#  t test- check if each level significantly different from null hypothesis (chance)
+EMM <- emmeans(model, ~  timeLock | latencyOrder)   # where treat has 2 levels
+
+t= test(EMM, null=0, adjust='sidak')
+
+print(t,by = NULL, adjust = "sidak")   # all are in one group now
+
+# lots of values here (comparison at every time bin) make a viz or subset of only those below "significance" p value threshold
+indSig= which(t$p.value<=pAlpha)
+
+tSig= t[indSig,]
+
+
+
+# lots of values here. make a viz or subset of only those below "significance" p value threshold
+pAlpha= 0.050
+
+indSig= which(t$p.value<=pAlpha)
+
+tSig= t[indSig,]
+
+library(ggplot2)
+
+
+
+
+#4%%-- Save output to variables between tests  ####
+# trying to keep code mostly generalizable and just save custom names at end
+# all the results into descriptive variables between tests
+
+
+fig3_Supplement_stats_lickCorrelation_A_0_description= "Figure 3: Encoding model, Post-Event Kernel AUCs"
+fig3_Supplement_stats_lickCorrelation_A_1_model= model
+fig3_Supplement_stats_lickCorrelation_A_2_model_anova= model_anova
+fig3_Supplement_stats_lickCorrelation_A_3_model_post_hoc_pairwise= tPairwiseSig
+fig3_Supplement_stats_lickCorrelation_A_3_model_post_hoc_t= tSig
+
+
+#5%%-- Save output ####
+
+#- move to output directory prior to saving
+setwd(pathOutput)
+
+#------Pooled
+
+sink("vp-vta_fig3_Supplement_stats_lickCorrelation_A.txt")
+'------------------------------------------------------------------------------'
+'0)---- Description --: '
+print(fig3_Supplement_stats_lickCorrelation_0_description)
+'------------------------------------------------------------------------------'
+print('1)---- LME:')
+print(summary(fig3_Supplement_stats_lickCorrelation_A_1_model))
+'------------------------------------------------------------------------------'
+print('2)---- ANOVA of LME:')
+print(fig3_Supplement_stats_lickCorrelation_A_2_model_anova)
+'------------------------------------------------------------------------------'
+print('3)---- Posthoc T, Only Significant time bins :') # Make sure for posthocs the summary is printed with pval correction
+print(fig3_Supplement_stats_lickCorrelation_A_3_model_post_hoc_t, by = NULL, adjust = "sidak")
+
+
+'---- END ---------------------------------------------------------------------'
+sink()  # returns output to the console
+
+
+setwd(workingDir)
+
+#6%%-- viz ####
+# Viz stats output of "significant" comparions by time bin
+
+
+p=''
+
+p= ggplot()+
+  
+  scale_colour_brewer(palette="Dark2")+
+  
+  geom_point(data= t, aes(x=timeLock, y=p.value, color=latencyOrder, shape=latencyOrder, size=1))+
+  
+  # scale_color_hue(l=40, c=35)+
+  
+  # geom_line(inherit.aes=FALSE, data=df, aes(x=timeLock, y=periCueRho, color=latencyOrder)+
+  #   scale_colour_brewer(palette="Set2"))+
+  
+  # geom_line(data=df, aes(x=timeLock, y=periCueRho, color=latencyOrder)+
+  # #             scale_colour_brewer(palette="Set2"))+
+  # # 
+  # geom_line(data=df, aes(x=timeLock, y=periCueRho, color=latencyOrder)+
+  #             scale_colour_brewer(palette="Set2")
+#           )
+# # 
+# geom_line(data=df, aes(x=timeLock, y=periCueRho, color=latencyOrder, alpha=0.2)+
+#   scale_colour_manual(l=30))
+geom_line(data=df, inherit.aes=FALSE, aes(x=timeLock, y=periCueRho, color=latencyOrder, alpha=0.2))+
+  
+  geom_hline(yintercept=pAlpha, color='red', size=2, alpha=0.6)+
+  geom_vline(xintercept= t$timeLock[t$timeLock==5.0], color='grey', size=2, alpha=0.6)+
+  
+  # manual latency
+  # geom_vline(xintercept= t$timeLock[t$timeLock==2.75], color='purple', size=2, alpha=0.6)+
+  geom_vline(xintercept= t$timeLock[t$timeLock==2.05], color='purple', size=2, alpha=0.6)+
+  # geom_vline(xintercept=2.05, color='purple', size=2, alpha=0.6)+
+  
+  
+  show(p)
+
+
+
+# Check the actual data for these "Significant" time points. Was the correlation itself significant?
+
+indSig= which(df$timeLock %in% tSig$timeLock)
+
+dfSig= df[indSig,]
+
+# clearly "significant" late time bins seem to be outliers. not consistent between all subjects tho maybe shared between a couple
+
+# plot "Significant" data
+dfPlot= dfSig[dfSig$latencyOrder=='rhoBlue',]
+
+# double "sig"-- correlation pval < alpha and different from 0 in this time bin
+dfPlot2= dfPlot[dfPlot$pvalBlue<= pAlpha,]
+
+p=''
+
+p= ggplot()+
+  
+  # geom_boxplot(data= dfPlot, aes(x=timeLock, y=pvalBlue), colour='gray', alpha=0.5)+
+  
+  geom_boxplot(data= dfPlot, aes(x=timeLock, y=pvalBlue), colour='gray', alpha=0.5)+
+  # 
+  # stat_summary(data= dfPlot,
+  #   fun= median,
+  #   geom = 'line',
+  #   aes(x=timeLock, y=pvalBlue), colour='black')+
+  # 
+  
+  # # stat_summary(fun=median, geom='line', aes(x=dfPlot$timeLock, y=dfPlot$pvalBlue), colour='black', alpha=0.5, size=2)+
+  # geom_line(fun=median, data=dfPlot, aes(x=timeLock, y=pvalBlue), colour='black', alpha=.8, size=2)+
+  # 
+  # 
+# stat_summary(fun=median, data= dfPlot,  geom='line', aes(x=timeLock, y=pvalBlue), colour='black', alpha=0.5, size=2)+
+
+
+geom_line(data=dfPlot, aes(x=timeLock, y=pvalBlue, color=subject, alpha=0.2))+
+  
+  geom_point(data=dfPlot, aes(x=timeLock, y=pvalBlue, shape=subject, alpha=0.6))+
+  
+  # geom_point(data=dfPlot2, aes(x=timeLock, y=pvalBlue, shape=subject), colour="purple", size=2)+
+  geom_point(data=dfPlot2, aes(x=timeLock, y=pvalBlue, colour=subject), shape=1, size=3, stroke=3, alpha=0.6)+
+  
+  
+  geom_hline(yintercept=pAlpha, colour='red', size=2, alpha=0.6)+
+  
+  # geom_vline(xintercept= df$timeLock[df$timeLock==2.05], colour='purple', size=2, alpha=0.6)+
+  geom_vline(xintercept= 2.05, colour='purple', size=2, alpha=0.6)+
+  
+  
+  
+  # geom_vline(xintercept= t$timeLock[t$timeLock==5.0], color='grey', size=2, alpha=0.6)+
+  
+  # manual latency
+  # geom_vline(xintercept= t$timeLock[t$timeLock==2.75], color='purple', size=2, alpha=0.6)+
+  
+  show(p)
+
+
 #%% END ####
 
